@@ -4,8 +4,6 @@ import json
 __author__ = "Roland"
 __version__ = "1.0.0"
 
-playtime = []
-
 
 def main():
 	total = 0
@@ -18,9 +16,6 @@ def main():
 		total += data['stats']['minecraft:custom']['minecraft:play_one_minute']
 	
 	print('the total is: %d days' % ((total*0.83)/86400) )
-
-
-
 
 
 main()
