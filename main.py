@@ -1,23 +1,23 @@
 import os
-import ast
+import json
 
 __author__ = "Roland"
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 playtime = []
 
 
 def main():
+	total = 0
 	os.chdir(os.path.join(os.getcwd(),'stats'))
-	for filename in os.listdir():
-		# f = open(filename,'r')
-		f = open(filename)
-		
-		for row in f:
-			# print(row)
-			print("TEST")
-			list = row.split (",")
-			print(list)
+
+	for i,filename in enumerate(os.listdir()):
+		print('FILE ' + str(i) + ' ' + filename)
+		f = open(filename,'r')
+		data = json.load(f)
+		total += data['stats']['minecraft:custom']['minecraft:play_one_minute']
+	
+	print('the total is: %d days' % ((total*0.83)/86400) )
 
 
 
