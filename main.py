@@ -11,7 +11,7 @@ def main():
 	# where to save the results
 	outputFile = open("playtimeCounter.txt", "w")
 	# total in secconds: 1 minecraft min = 0.83 irl secconds
-	total = 0
+	total = 0.000
 
 	# change to the stats dir
 	os.chdir(statsDir)
@@ -22,9 +22,8 @@ def main():
 		total += data['stats']['minecraft:custom']['minecraft:play_one_minute']
 
 	# divide into irl secconds then convert to days. 
-	# 86400 = seccond to day formula
-	# 3600 = seccond to hour formula
-	total = (total/72)/3600
+	# total/20/60 = irl mins
+	total = ((total/20)/60)/1440
 	# print('the total is: %d days' % (total) )
 	outputFile.write(str(total))
 
